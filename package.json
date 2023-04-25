@@ -6,6 +6,6 @@
     "async": "node async_sleep",
     "sync": "node sync_sleep"
   },
-  "author": "",
+  "author": "Mark Rodighiero",
   "license": "ISC"
 }
