@@ -11,8 +11,10 @@ This is just an exercise for me to gain a little insight into the async/await co
 ### To install:
 
 Clone into a directory
+
 cd to directory
-npm install
+
+`npm install`
 
 ### To run:
 
