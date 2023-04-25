@@ -2,10 +2,9 @@
   "name": "async-and-sync-sleeps",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
   "scripts": {
     "async": "node async_sleep",
-    "sleep": "node sleep"
+    "sync": "node sync_sleep"
   },
   "author": "",
   "license": "ISC"
