@@ -1,19 +1,22 @@
-function  sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+function sleep(millis) {
+    var date = new Date();
+    var curDate = null;
+    do { curDate = new Date(); }
+    while(curDate-date < millis);
 }
 
 async function DoTheFirstThing(cb){
-    await cb(2000)
+    await cb(5000)
     console.log("Task 1 completed")
 }
 
 async function DoTheSecondThing(cb){
-    await cb(2000)
+    await cb(5000)
     console.log("Task 2 completed")
 }
 
 async function DoTheThirdThing(cb){
-    await cb(2000)
+    await cb(5000)
     console.log("Task 3 completed")
 }
 

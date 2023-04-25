@@ -1,26 +1,38 @@
-function  sleep(ms) {
-    return new Promise(resolve => setTimeout(resolve, ms));
+const co = require('co');
+
+function * sleep(millis) {
+    var date = new Date();
+    var curDate = null;
+    do { curDate = new Date(); }
+    while(curDate-date < millis);
+    return  "Task completed"
 }
 
-async function DoTheFirstThing(cb){
-    await cb(2000)
-    console.log("Task 1 completed")
+function DoTheFirstThing(cb) {
+    let res =  co.wrap(function * my_sleep() {
+        yield sleep(2000)
+    })
+    res().then(()=>console.log("First")) 
 }
 
-async function DoTheSecondThing(cb){
-    await cb(2000)
-    console.log("Task 2 completed")
+function DoTheSecondThing(cb){
+    let res =  co.wrap(function * my_sleep() {
+        yield sleep(2000)
+    })
+    res().then(()=>console.log("Second")) 
 }
 
-async function DoTheThirdThing(cb){
-    await cb(2000)
-    console.log("Task 3 completed")
+function DoTheThirdThing(cb){
+    let res =  co.wrap(function * my_sleep() {
+        yield sleep(2000)
+    })
+    res().then(()=>console.log("Third")) 
 }
 
-async function doAll(){
-    await DoTheFirstThing(sleep);
-    await DoTheSecondThing(sleep);
-    await DoTheThirdThing(sleep);
+function doAll(){
+    DoTheFirstThing(2000);
+    DoTheSecondThing(2000);
+    DoTheThirdThing(2000);
 };
 
 
